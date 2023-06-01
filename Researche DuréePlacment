@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    printf("Hello world!\n\n");
+
+    float capitalBase;
+    float capitalDesire;
+    float tauxInteret;
+    float nombreAnnees;
+
+    printf("Quel est le montant de votre capital de depart ?\t");
+    scanf("%f", &capitalBase);
+
+    printf("Et quel est le taux d'interet annuel de votre placement ?\t");
+    scanf("%f", &tauxInteret);
+
+    printf("Quel est le capital que vous voulez atteindre ? \t");
+    scanf("%f", &capitalDesire);
+
+    // Calcul du nombre d'années nécessaires
+    nombreAnnees = log(capitalDesire / capitalBase) / log(1 + tauxInteret / 100);
+
+    printf("Il faudra environ %f annees/mois pour atteindre un capital de %f euros.\n", nombreAnnees, capitalDesire);
+
+    return 0;
+}
