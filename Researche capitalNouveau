@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int capialBase = 0 ;
+    float captalNouveau  ;
+
+    float interet = 0 ;
+    float montantInteret ;
+
+    int duree = 0 ;
+
+
+
+    printf("Quel est le montant de votre capitale de depart ?\t");
+    scanf("%d", &capialBase);
+    printf("Votre capital de base est %d \n\n", capialBase);
+
+    printf("Et quel est le montant des interet de votre investissement? \t");
+    scanf("%f", &interet);
+    printf("Le montant des interet de votre investissement est %f\n\n", interet);
+
+    printf("Quel est la duree, en mois, de votre investissement? \t") ;
+    scanf("%d", &duree) ;
+    printf("La duree de votre investissement est %d mois \n\n", duree);
+
+    montantInteret = capialBase * interet/100 + duree /12 ;
+    captalNouveau = capialBase + montantInteret ;
+
+    printf("Pour un investissment avec un capital de base de %d euros, des interets de %f pourcent, et tout cela sur une duree de %d mois. Vous beneficirez : \n", capialBase, interet, duree) ;
+    printf("Capital nouveau : %f euro \nMontants des Interet : %f euros \n\n", captalNouveau, montantInteret);
+
+    return 0;
+}
