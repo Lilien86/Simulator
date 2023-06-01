@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    printf("Hello world!\n");
+    
+    float taux ;
+    float capitalDesire ;
+    float duree ;
+    float capitalBase ;
+    
+    printf("Quel est le taux de votre investissement ? \t");
+    scanf("%f", &taux);
+    
+    printf("Quel est le montant que vous aimeriez disposer ? \t ");
+    scanf("%f", &capitalDesire);
+    
+    printf("En combien de temps voulez-vous atteindre ce capital ? \t ");
+    scanf("%f", &duree);
+    
+    capitalBase = capitalDesire / pow((1 + (taux / 100)), duree);
+    
+    printf("Le capital initial nécessaire pour atteindre %.2f en %f années est de : %.2f\n", capitalDesire, duree, capitalBase);
+    
+    return 0;
+}
