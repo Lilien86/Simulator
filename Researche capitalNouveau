@@ -4,7 +4,7 @@
 int main()
 {
     int capialBase = 0 ;
-    float captalNouveau  ;
+    float capitalNouveau  ;
 
     float interet = 0 ;
     float montantInteret ;
@@ -25,11 +25,12 @@ int main()
     scanf("%d", &duree) ;
     printf("La duree de votre investissement est %d mois \n\n", duree);
 
-    montantInteret = capialBase * interet/100 + duree /12 ;
-    captalNouveau = capialBase + montantInteret ;
+    //montantInteret = capialBase * interet/100 + duree /12 ;
+    //capitalNouveau = capialBase + montantInteret ;
+    capitalNouveau= capialBase * pow((1+(interet/100)), duree) ;
 
     printf("Pour un investissment avec un capital de base de %d euros, des interets de %f pourcent, et tout cela sur une duree de %d mois. Vous beneficirez : \n", capialBase, interet, duree) ;
-    printf("Capital nouveau : %f euro \nMontants des Interet : %f euros \n\n", captalNouveau, montantInteret);
+    printf("Capital nouveau : %f euro \n\n\n", capitalNouveau);
 
     return 0;
 }
