@@ -1,0 +1,38 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+
+
+int main()
+{
+    printf("Hello World\n\n");
+    
+    int nombreMystere ;
+    int nombreEntre ;
+    int nombreMax = 100 ;
+    int nombreMin = 0;
+    
+    //initialisation et et algo de l'aléatoir 
+    srand(time(NULL));
+    nombreMystere = (rand() % (nombreMax- nombreMin +1))+ nombreMin ;
+    
+    do
+    {
+        //input le nombre mstere 
+        printf("Quel est le nombre mystere ?\n") ;
+        scanf("%d", &nombreEntre) ;
+        
+        if (nombreMystere > nombreEntre) 
+        printf ("C'est plus\n\n");
+        
+        else if (nombreMystere < nombreEntre)
+        printf("C'est moins\n\n");
+        
+        else
+        printf("Bien joué!!!!\n\n") ;
+        
+    } while (nombreEntre != nombreMystere) ;
+    
+
+    return 0;
+}
