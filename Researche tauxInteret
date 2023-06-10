@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float capitalBase ;
+    float capitalDesire ;
+    float duree ;
+    float tauxInteret ;
+
+    printf("Quel est le montant de votre capital de base ? \t");
+    scanf("%f", &capitalBase) ;
+
+    while(capitalBase < 0){
+        printf("Le calcule ne peut s'effectuer car le cipital est negatif :\t") ;
+        scanf("%f", &capitalBase) ;
+        }
+
+
+    printf("\n\nQuel est le capital de vous voulez atteindre ? \t");
+    scanf("%f", &capitalDesire) ;
+
+    while(capitalDesire < capitalBase){
+        printf("Le calcul n'est pas possible car votre objectif est infferieur a votre capital de base :\t") ;
+        scanf("%f", &capitalDesire) ;
+    }
+
+
+    printf("\n\nEn combien de temps voulez vous atteindre ce capital ?\t");
+    scanf("%f", &duree);
+
+    while(duree < 0){
+        printf("Le calcul ne peut pas s'effectuer car la duree a une valeur negative :\t");
+        scanf("%f", &duree);
+        }
+
+    tauxInteret = ((capitalDesire - capitalBase) / (capitalBase * duree)) *100 ;
+
+    printf("\n\nD'apres les donnees que vous avez fournis, pour atteindre votre capital desiree il vous faut un taux d'interet de %f pourcents\n\n", tauxInteret);
+
+
+    return 0;
+}
