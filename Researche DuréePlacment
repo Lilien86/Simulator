@@ -11,19 +11,34 @@ int main()
     float tauxInteret;
     float nombreAnnees;
 
-    printf("Quel est le montant de votre capital de depart ?\t");
+    printf("\nQuel est le montant de votre capital de depart ?\t");
     scanf("%f", &capitalBase);
 
-    printf("Et quel est le taux d'interet annuel de votre placement ?\t");
+    if(capitalBase < 0){
+        printf("Le calcul ne peut pas s'effectuer car votre capital est negatif :\t");
+        scanf("%f", &capitalBase);
+    }
+
+    printf("\nEt quel est le taux d'interet annuel de votre placement ?\t");
     scanf("%f", &tauxInteret);
 
-    printf("Quel est le capital que vous voulez atteindre ? \t");
+     if(tauxInteret < 0){
+        printf("Le calcul ne peut pas s'effectuer car votre taux d'interet est negatif :\t");
+        scanf("%f", &tauxInteret);
+    }
+
+    printf("\nQuel est le capital que vous voulez atteindre ? \t");
     scanf("%f", &capitalDesire);
+
+     if(capitalDesire < 0){
+        printf("Le calcul ne peut pas s'effectuer car votre capital voulu est negatif :\t");
+        scanf("%f", &capitalDesire);
+    }
 
     // Calcul du nombre d'années nécessaires
     nombreAnnees = log(capitalDesire / capitalBase) / log(1 + tauxInteret / 100);
 
-    printf("Il faudra environ %f annees/mois pour atteindre un capital de %f euros.\n", nombreAnnees, capitalDesire);
+    printf("\nIl faudra environ %f annees/mois pour atteindre un capital de %f euros.\n", nombreAnnees, capitalDesire);
 
     return 0;
 }
