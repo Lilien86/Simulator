@@ -15,22 +15,33 @@ int main()
 
     printf("Quel est le montant de votre capitale de depart ?\t");
     scanf("%d", &capialBase);
-    printf("Votre capital de base est %d \n\n", capialBase);
 
-    printf("Et quel est le montant des interet de votre investissement? \t");
+    if(capialBase < 0){
+        printf("Le calcul ne peut pas s'effectuer car votre capital est negatif :\t") ;
+        scanf("%d", &capialBase);
+    }
+
+    printf("\nEt quel est le montant du taux interet de votre investissement? \t");
     scanf("%f", &interet);
-    printf("Le montant des interet de votre investissement est %f\n\n", interet);
 
-    printf("Quel est la duree, en mois, de votre investissement? \t") ;
+    if(interet < 0){
+        printf("Le calcul ne peut pas s'effectuer car votre taux d'interet est negatif :\t") ;
+        scanf("%d", &interet);
+    }
+
+
+    printf("\nQuel est la duree de votre investissement? \t") ;
     scanf("%d", &duree) ;
-    printf("La duree de votre investissement est %d mois \n\n", duree);
 
-    //montantInteret = capialBase * interet/100 + duree /12 ;
-    //capitalNouveau = capialBase + montantInteret ;
+    if(duree < 0){
+        printf("Le calcul ne peut pas s'effectuer car la duree est negative :\t") ;
+        scanf("%d", &duree);
+    }
+
+
     capitalNouveau= capialBase * pow((1+(interet/100)), duree) ;
 
-    printf("Pour un investissment avec un capital de base de %d euros, des interets de %f pourcent, et tout cela sur une duree de %d mois. Vous beneficirez : \n", capialBase, interet, duree) ;
-    printf("Capital nouveau : %f euro \n\n\n", capitalNouveau);
+    printf("\nCapital nouveau : %f euro \n\n\n", capitalNouveau);
 
     return 0;
 }
