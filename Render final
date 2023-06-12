@@ -57,7 +57,7 @@ int main() {
 
 // Définition des fonctions pour chaque option
 
-void optionUne() { //Permet de trouver le capital de base pour atteindre son objectif 
+void optionUne() { //Permet de trouver le capital de base pour atteindre son objectif
     printf("Vous avez choisi l'option 1.\n");
 
     printf("\nQuel est le taux de votre investissement ? \t");
@@ -92,10 +92,10 @@ void optionUne() { //Permet de trouver le capital de base pour atteindre son obj
 
 
 
-void optionDeux() { //Permet de trouver le capital nouveau sur un placement 
+void optionDeux() { //Permet de trouver le capital nouveau sur un placement
     printf("Vous avez choisi l'option 2.\n");
 
-    printf("\nQuel est le montant de votre capital de départ ?\t");
+    printf("\nQuel est le montant de votre capital de depart ?\t");
     scanf("%f", &capitalBase);
 
     if (capitalBase < 0) {
@@ -103,7 +103,7 @@ void optionDeux() { //Permet de trouver le capital nouveau sur un placement
         scanf("%f", &capitalBase);
     }
 
-    printf("\nEt quel est le montant du taux d'intérêt de votre investissement ? \t");
+    printf("Et quel est le montant du taux d'interet de votre investissement ? \t");
     scanf("%f", &taux);
 
     if (taux < 0) {
@@ -111,7 +111,7 @@ void optionDeux() { //Permet de trouver le capital nouveau sur un placement
         scanf("%f", &taux);
     }
 
-    printf("\nQuelle est la durée de votre investissement ? \t");
+    printf("Quelle est la duree de votre investissement ? \t");
     scanf("%f", &duree);
 
     if (duree < 0) {
@@ -127,7 +127,7 @@ void optionDeux() { //Permet de trouver le capital nouveau sur un placement
 
 
 
-void optionTrois() { //Permet de trouver la durée nécessaire pour atteindre son objectif d'investissement 
+void optionTrois() { //Permet de trouver la durée nécessaire pour atteindre son objectif d'investissement
     printf("Vous avez choisi l'option 3.\n");
 
      printf("\nQuel est le montant de votre capital de depart ?\t");
@@ -138,7 +138,7 @@ void optionTrois() { //Permet de trouver la durée nécessaire pour atteindre so
         scanf("%f", &capitalBase);
     }
 
-    printf("\nEt quel est le taux d'interet annuel de votre placement ?\t");
+    printf("Et quel est le taux d'interet annuel de votre placement ?\t");
     scanf("%f", &taux);
 
      if(taux < 0){
@@ -146,7 +146,7 @@ void optionTrois() { //Permet de trouver la durée nécessaire pour atteindre so
         scanf("%f", &taux);
     }
 
-    printf("\nQuel est le capital que vous voulez atteindre ? \t");
+    printf("Quel est le capital que vous voulez atteindre ? \t");
     scanf("%f", &capitalDesire);
 
      if(capitalDesire < 0){
@@ -154,24 +154,25 @@ void optionTrois() { //Permet de trouver la durée nécessaire pour atteindre so
         scanf("%f", &capitalDesire);
     }
 
+    if(capitalDesire < capitalBase){
+        printf("Le calcul ne peut pas s'effectuer car le capital de depart est superieur au capital desire :\t") ;
+        scanf("%f", &capitalDesire);
+    }
+
     // Calcul du nombre d'années nécessaires
     duree = log(capitalDesire / capitalBase) / log(1 + taux / 100);
 
-    printf("\nIl faudra environ %f annees/mois pour atteindre un capital de %f euros.\n", duree, capitalDesire);
+    printf("\nIl faudra environ %f echeances pour atteindre un capital de %f euros.\n", duree, capitalDesire);
 
 }
 
 
 
-void optionQuatre() {  //permet de trouver le taux d'interet ideal pour un investissement 
+void optionQuatre() {  //permet de trouver le taux d'interet ideal pour un investissement
     printf("Vous avez choisi l'option 4.\n");
 
-    float capitalBase ;
-    float capitalDesire ;
-    float duree ;
-    float tauxInteret ;
 
-    printf("Quel est le montant de votre capital de base ? \t");
+    printf("\nQuel est le montant de votre capital de base ? \t");
     scanf("%f", &capitalBase) ;
 
     while(capitalBase < 0){
@@ -180,7 +181,7 @@ void optionQuatre() {  //permet de trouver le taux d'interet ideal pour un inves
         }
 
 
-    printf("\n\nQuel est le capital de vous voulez atteindre ? \t");
+    printf("Quel est le capital de vous voulez atteindre ? \t");
     scanf("%f", &capitalDesire) ;
 
     while(capitalDesire < capitalBase){
@@ -189,7 +190,7 @@ void optionQuatre() {  //permet de trouver le taux d'interet ideal pour un inves
     }
 
 
-    printf("\n\nEn combien de temps voulez vous atteindre ce capital ?\t");
+    printf("En combien de temps voulez vous atteindre ce capital ?\t");
     scanf("%f", &duree);
 
     while(duree < 0){
