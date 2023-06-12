@@ -1,0 +1,203 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+// Prototypes des fonctions
+void optionUne();
+void optionDeux();
+void optionTrois();
+void optionQuatre();
+
+int main() {
+    int choix;
+
+    do {
+        // Affichage du menu
+        printf("\nMenu :\n");
+        printf("1. Trouver votre nouveau capital\n");
+        printf("2. Determiner votre capital desire\n");
+        printf("3. rechercher la duree ideal\n");
+        printf("4. Trouver le taux d'interet\n");
+        printf("0. Quitter\n");
+        printf("Entrez votre choix : ");
+        scanf("%d", &choix);
+
+        // Exécution de l'option choisie
+        switch (choix) {
+            case 1:
+                optionUne();
+                break;
+            case 2:
+                optionDeux();
+                break;
+            case 3:
+                optionTrois();
+                break;
+            case 4:
+                optionQuatre();
+                break;
+            case 0:
+                printf("Au revoir !\n");
+                break;
+            default:
+                printf("Choix invalide. Veuillez réessayer.\n");
+                break;
+        }
+    } while (choix != 0);
+
+    return 0;
+}
+
+
+    float taux ;
+    float capitalDesire ;
+    float duree ;
+    float capitalBase ;
+
+
+// Définition des fonctions pour chaque option
+
+void optionUne() { //Permet de trouver le capital de base pour atteindre son objectif 
+    printf("Vous avez choisi l'option 1.\n");
+
+    printf("\nQuel est le taux de votre investissement ? \t");
+    scanf("%f", &taux);
+
+    if(taux < 0){
+        printf("Le calcul ne peut pas s'effectuer car le aux est negatif :\t");
+        scanf("%f", &taux);
+    }
+
+    printf("Quel est le montant que vous aimeriez disposer ? \t ");
+    scanf("%f", &capitalDesire);
+
+    if(capitalDesire < 0){
+        printf("Le calcul ne peut pas s'effectuer car le taux est negatif :\t");
+        scanf("%f", &capitalDesire);
+    }
+
+    printf("En combien de temps voulez-vous atteindre ce capital ? \t ");
+    scanf("%f", &duree);
+
+      if(duree < 0){
+        printf("Le calcul ne peut pas s'effectuer car la duree est negative :\t");
+        scanf("%f", &capitalDesire);
+    }
+
+    capitalBase = capitalDesire / pow((1 + (taux / 100)), duree);
+
+    printf("Le capital initial necessaire pour atteindre %.2f en %f années est de : %.2f\n", capitalDesire, duree, capitalBase);
+
+}
+
+
+
+void optionDeux() { //Permet de trouver le capital nouveau sur un placement 
+    printf("Vous avez choisi l'option 2.\n");
+
+    printf("\nQuel est le montant de votre capital de départ ?\t");
+    scanf("%f", &capitalBase);
+
+    if (capitalBase < 0) {
+        printf("Le calcul ne peut pas s'effectuer car la valeur de votre capital est negative. Veuillez réessayer :\t");
+        scanf("%f", &capitalBase);
+    }
+
+    printf("\nEt quel est le montant du taux d'intérêt de votre investissement ? \t");
+    scanf("%f", &taux);
+
+    if (taux < 0) {
+        printf("Le calcul ne peut pas s'effectuer car votre taux d'interet est negatif. Veuillez reessayer :\t");
+        scanf("%f", &taux);
+    }
+
+    printf("\nQuelle est la durée de votre investissement ? \t");
+    scanf("%f", &duree);
+
+    if (duree < 0) {
+        printf("Le calcul ne peut pas s'effectuer car la duree est negative. Veuillez reessayer :\t");
+        scanf("%f", &duree);
+    }
+
+    capitalDesire = capitalBase * pow(1 + (taux / 100), duree);
+
+    printf("\nCapital nouveau : %f euro \n\n", capitalDesire);
+}
+
+
+
+
+void optionTrois() { //Permet de trouver la durée nécessaire pour atteindre son objectif d'investissement 
+    printf("Vous avez choisi l'option 3.\n");
+
+     printf("\nQuel est le montant de votre capital de depart ?\t");
+    scanf("%f", &capitalBase);
+
+    if(capitalBase < 0){
+        printf("Le calcul ne peut pas s'effectuer car votre capital est negatif :\t");
+        scanf("%f", &capitalBase);
+    }
+
+    printf("\nEt quel est le taux d'interet annuel de votre placement ?\t");
+    scanf("%f", &taux);
+
+     if(taux < 0){
+        printf("Le calcul ne peut pas s'effectuer car votre taux d'interet est negatif :\t");
+        scanf("%f", &taux);
+    }
+
+    printf("\nQuel est le capital que vous voulez atteindre ? \t");
+    scanf("%f", &capitalDesire);
+
+     if(capitalDesire < 0){
+        printf("Le calcul ne peut pas s'effectuer car votre capital voulu est negatif :\t");
+        scanf("%f", &capitalDesire);
+    }
+
+    // Calcul du nombre d'années nécessaires
+    duree = log(capitalDesire / capitalBase) / log(1 + taux / 100);
+
+    printf("\nIl faudra environ %f annees/mois pour atteindre un capital de %f euros.\n", duree, capitalDesire);
+
+}
+
+
+
+void optionQuatre() {  //permet de trouver le taux d'interet ideal pour un investissement 
+    printf("Vous avez choisi l'option 4.\n");
+
+    float capitalBase ;
+    float capitalDesire ;
+    float duree ;
+    float tauxInteret ;
+
+    printf("Quel est le montant de votre capital de base ? \t");
+    scanf("%f", &capitalBase) ;
+
+    while(capitalBase < 0){
+        printf("Le calcule ne peut s'effectuer car le cipital est negatif :\t") ;
+        scanf("%f", &capitalBase) ;
+        }
+
+
+    printf("\n\nQuel est le capital de vous voulez atteindre ? \t");
+    scanf("%f", &capitalDesire) ;
+
+    while(capitalDesire < capitalBase){
+        printf("Le calcul n'est pas possible car votre objectif est infferieur a votre capital de base :\t") ;
+        scanf("%f", &capitalDesire) ;
+    }
+
+
+    printf("\n\nEn combien de temps voulez vous atteindre ce capital ?\t");
+    scanf("%f", &duree);
+
+    while(duree < 0){
+        printf("Le calcul ne peut pas s'effectuer car la duree a une valeur negative :\t");
+        scanf("%f", &duree);
+        }
+
+    taux = ((capitalDesire - capitalBase) / (capitalBase * duree)) *100 ;
+
+    printf("\n\nPour atteindre votre capital desiree il vous faut un taux d'interet de %f pourcents\n\n", taux);
+}
